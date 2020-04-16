@@ -1,5 +1,5 @@
 ## gitbook 根目录
-## 基础
+## markdown 语法基础
 https://www.jianshu.com/p/191d1e21f7ed
 * 标题
    * 在想要设置为标题的文字前面加#来表示
