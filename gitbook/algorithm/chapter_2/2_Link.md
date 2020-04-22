@@ -25,11 +25,13 @@
    ![](../image/img2-2-2.jpg) 
    + 双向链表
    ![](../image/img2-2-3.jpg) 
+   
 **思考**
 + 快慢指针法
 + cpu缓存机制
 
 **实践**
++ 实现链表[代码例子](../../algorithm/others/README.md) 
 + 链表是否有环 [代码例子](../../algorithm/others/README.md) 
 + 链表反转 [代码例子](../../algorithm/others/README.md) 
 + 链表实现 LRU 缓存淘汰算法 [代码例子](../../algorithm/others/README.md) 
