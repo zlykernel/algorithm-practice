@@ -53,18 +53,20 @@ public class SinglyLinkedList<E> {
      * @return void
      **/
     public void reverse(SinglyLinkedList list){
-        Node cur=list.first;
+        //
+        Node cur=first;
         if (cur == null){
             return;
         }
+        tail = cur;
         Node pre=null;
-        Node next=cur.next;
         while (cur!=null){
+            Node tempNext =cur.next;
+            cur.next=pre;
             pre=cur;
-            next.next=pre;
-            cur=next;
+            cur=tempNext;
         }
-
+        first=pre;
     }
 
     @Override

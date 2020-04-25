@@ -32,7 +32,7 @@
 
 **实践**
 + 实现链表[代码例子](/src/main/java/com/zlykernel/pratice/algorithm/link/SinglyLinkedList.java) 
-+ 链表是否有环 [代码例子](../../algorithm/others/README.md) 
 + 链表反转 [代码例子](../../algorithm/others/README.md) 
++ 链表是否有环 [代码例子](../../algorithm/others/README.md) 
 + 链表实现 LRU 缓存淘汰算法 [代码例子](../../algorithm/others/README.md) 
 + 判断一个字符串是否是回文字符串 [代码例子](../../algorithm/others/README.md) 
