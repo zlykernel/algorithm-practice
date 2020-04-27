@@ -23,10 +23,27 @@ public class SinglyLinkedList<E> {
     private int size;
 
     /**
-     * 设置环为链表
+     * 链表设置环
      */
-    public void setAnnular(){
-        tail.next=first;
+    public void setCycle(){
+        if (tail!=null){
+            tail.next=first;
+        }
+    }
+
+    /**
+     * 链表清空环
+     */
+    public void clearCycle(){
+        tail.next=null;
+    }
+
+    public Node<E> getFirst() {
+        return first;
+    }
+
+    public Node<E> getTail() {
+        return tail;
     }
 
 
@@ -109,7 +126,6 @@ public class SinglyLinkedList<E> {
             sb.append(temp.value.toString());
             sb.append(",");
             temp=temp.next;
-//            System.out.println(sb.toString());
         }
         sb.append("]");
         return sb.toString();
@@ -130,10 +146,85 @@ public class SinglyLinkedList<E> {
     }
 
     public static void main(String[] args) {
+//        //case1:测试单链表反转
 //        testListReverse();
-        testAnnularList();
+
+        //case2:链表是否有环
+        //获取有环列表
+        SinglyLinkedList list=mockGetCycleList();
+        //方法1 检查有环情况
+        boolean hasCycle=exsitCycleInLinkedList(list);
+        System.out.println("方法1 检测有环:"+hasCycle);
+        list.clearCycle();
+        //方法1 检查无环环情况
+        boolean hasNoCycle=exsitCycleInLinkedList(list);
+        System.out.println("方法1 检测无环:"+hasNoCycle);
+//        //方法2 检查有环情况
+//        boolean hasCycle=exsitCycleInLinkedList1(list);
+//        System.out.println("方法2 检测有环:"+hasCycle);
+//        list.clearCycle();
+//        //方法2 检查无环环情况
+//        boolean hasNoCycle=exsitCycleInLinkedList1(list);
+//        System.out.println("方法2 检测无环:"+hasNoCycle);
+
     }
 
+    /**
+     * 检查链表是否有环
+     * 使用遍历方式 判断tail节点的next是否指向first节点
+     * 时间复杂度 O(1)
+     * 空间复杂度 O(1)
+     * @param list
+     * @return
+     */
+    public static boolean exsitCycleInLinkedList(SinglyLinkedList list){
+        Node fist=list.getFirst();
+        Node tail=list.getTail();
+        if (fist==null || tail==null || tail==fist){
+            return false;
+        }
+        return (fist==tail.next);
+    }
+    /**
+     * 检查链表是否有环
+     * 使用快慢指针的方式
+     *      慢指针
+     *      快指针
+     *
+     * 时间复杂度 O(1)
+     * 空间复杂度 O(1)
+     * @param list
+     * @return
+     */
+    public static boolean exsitCycleInLinkedList1(SinglyLinkedList list){
+        Node current=list.getFirst();
+        if (current==null || current.next==null){
+            return false;
+        }
+        Node quick=current;
+        int size=0;
+        //当前节点味
+        while (current!=null){
+            Node tempNextNode=current.next;
+            //链表无环
+            if(tempNextNode==null || tempNextNode.next==null || quick==null || quick.next==null){
+                return false;
+            }
+            //设置快指针速度
+            quick=quick.next.next;
+            //链表有环
+            if (quick==current){
+                System.out.println("检查次数："+size);
+                return true;
+            }
+            //改变循环条件  驱动循环
+            current=tempNextNode;
+            //
+            size++;
+        }
+
+        return false;
+    }
     /**
      *链表基础/反转
      * 测试方法
@@ -154,14 +245,21 @@ public class SinglyLinkedList<E> {
      * 测试方法
      * @return
      */
-    private static SinglyLinkedList testAnnularList(){
+    private static SinglyLinkedList mockGetCycleList(){
         SinglyLinkedList list = new SinglyLinkedList();
         list.add("a");
         list.add("b");
         list.add("c");
         list.add("d");
-        list.setAnnular();
-//        System.out.println("环形链表打印："+list.toString());
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.setCycle();
         return list;
     }
 }

@@ -37,11 +37,11 @@
 
 **实践**
 + 实现链表[代码例子(完成)](/src/main/java/com/zlykernel/pratice/algorithm/link/SinglyLinkedList.java) 
-+ 单向链表反转 [代码例子(完成)](../../algorithm/others/README.md) 
-+ 双向链表反转 [代码例子(完成)](../../algorithm/others/README.md) 
-+ 链表是否有环 [代码例子](../../algorithm/others/README.md) 
++ 单向链表反转 [代码例子(完成) reverse方法](/src/main/java/com/zlykernel/pratice/algorithm/link/SinglyLinkedList.java) 
++ 链表是否有环 [代码例子(完成) exsitCycleInLinkedList方法 exsitCycleInLinkedList1方法](/src/main/java/com/zlykernel/pratice/algorithm/link/SinglyLinkedList.java) 
++ 求链表的中间结点 [代码例子](../../algorithm/others/README.md)
 + 链表实现 LRU 缓存淘汰算法 [代码例子](../../algorithm/others/README.md) 
 + 判断一个字符串是否是回文字符串 [代码例子](../../algorithm/others/README.md) 
++ 双向链表反转 [代码例子](../../algorithm/others/README.md) 
 + 两个有序的链表合并 [代码例子](../../algorithm/others/README.md)
 + 删除链表倒数第 n 个结点 [代码例子](../../algorithm/others/README.md)
-+ 求链表的中间结点 [代码例子](../../algorithm/others/README.md)
