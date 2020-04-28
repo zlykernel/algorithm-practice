@@ -9,4 +9,6 @@
 
    [2.1 数组](./chapter_2/1_Array.md)
    
-   [2.2 链表](./chapter_1/2_Complexity.md)
+   [2.2 链表](./chapter_2/2_Link.md)
+
+   [2.3 栈](./chapter_2/3_Stack.md)
