@@ -45,7 +45,17 @@ public class SinglyLinkedList<E> {
     public Node<E> getTail() {
         return tail;
     }
+    public E getTailValue() {
+        return tail.value;
+    }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     /**
      * 添加元素
@@ -67,6 +77,10 @@ public class SinglyLinkedList<E> {
         //更新尾部节点为新节点
         tail=newItem;
         size++;
+    }
+
+    public void removeTail(){
+
     }
 
     /**
@@ -141,6 +155,22 @@ public class SinglyLinkedList<E> {
 
         public Node(E value, Node<E> next) {
             this.value = value;
+            this.next = next;
+        }
+
+        public E getValue() {
+            return value;
+        }
+
+        public void setValue(E value) {
+            this.value = value;
+        }
+
+        public Node<E> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<E> next) {
             this.next = next;
         }
     }
