@@ -23,6 +23,10 @@ public class ArrayStack<E> {
      */
     private int topPoint=-1;
 
+    /**
+     * 元素个数
+     */
+    private int elementCount;
 
     public ArrayStack() {
         //初始化数组4个
@@ -38,6 +42,34 @@ public class ArrayStack<E> {
          */
         arrays[++topPoint]=item;
         size=topPoint+1;
+    }
+
+    public E pushUpgrade(E item){
+        arrays[elementCount++]=item;
+        return item;
+    }
+
+    public E popUpgrade(){
+        E result=peekUpgrade();
+        removeElementAt(size()-1);
+        return result;
+    }
+
+    public E peekUpgrade(){
+        int len=size();
+        if (len < 1){
+            return null;
+        }
+        return (E)arrays[len-1];
+    }
+
+    private void removeElementAt(int index){
+        elementCount--;
+        arrays[index]=null;
+    }
+
+    public int size(){
+        return elementCount;
     }
 
     public E pop(){
@@ -57,6 +89,13 @@ public class ArrayStack<E> {
 
     public static void main(String[] args) {
 //        testBaseForStack();
+//         test();
+        testUpgrade();
+
+
+    }
+
+    private static void test(){
         int i=0;
         int a =++i;
         System.out.println("a="+a+";i="+i);
@@ -75,6 +114,19 @@ public class ArrayStack<E> {
         while (temp!=null){
             System.out.println("弹出元素:"+temp+"栈剩余元素个数:"+stack.size);
             temp=stack.pop();
+        }
+    }
+
+    private static void testUpgrade(){
+        ArrayStack<String> stack = new ArrayStack<String>();
+        stack.pushUpgrade("a");
+        stack.pushUpgrade("b");
+        stack.pushUpgrade("c");
+        System.out.println(stack.elementCount);
+        String temp=stack.popUpgrade();
+        while (temp!=null){
+            System.out.println("弹出元素:"+temp+"栈剩余元素个数:"+stack.elementCount);
+            temp=stack.popUpgrade();
         }
     }
 }
