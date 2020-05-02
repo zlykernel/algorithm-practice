@@ -1,5 +1,7 @@
 package com.zlykernel.pratice.algorithm.stack;
 
+import java.util.Arrays;
+
 /**
  * 栈基于数组
  * @author zhaoliangyuan
@@ -28,11 +30,17 @@ public class ArrayStack<E> {
      */
     private int elementCount;
 
+
     public ArrayStack() {
         //初始化数组4个
         arrays=new Object[4];
     }
 
+    /**
+     * 问题:
+     * 1.扩容考虑
+     * @param item
+     */
     public void push(E item){
         if (item == null){
             return ;
@@ -43,8 +51,29 @@ public class ArrayStack<E> {
         arrays[++topPoint]=item;
         size=topPoint+1;
     }
+    public E pop(){
+        //临界值判断，当站内没有元素时判断
+        if (arrays[0]==null){
+            return null;
+        }
+        E result = (E)arrays[topPoint];
+        //将弹出元素 删除
+        arrays[topPoint]=null;
+        //栈顶指针下移
+        topPoint--;
+        //栈内元素个数-1
+        size--;
+        return result;
+    }
 
+    /**
+     * 不设置头部指针
+     * 使用容量来计算头部指针
+     * @param item
+     * @return
+     */
     public E pushUpgrade(E item){
+        ensureCapacity(elementCount+1);
         arrays[elementCount++]=item;
         return item;
     }
@@ -68,31 +97,44 @@ public class ArrayStack<E> {
         arrays[index]=null;
     }
 
+    /**
+     * 确定容量
+     * @param minCapacity
+     */
+    private void ensureCapacity(int minCapacity){
+        if (minCapacity>arrays.length){
+            scaleCapacity(minCapacity);
+        }
+    }
+
+    /**
+     * 扩容
+     */
+    private void scaleCapacity(int minCapacity){
+        int oldCapacity=arrays.length;
+        //扩大原来容量的2倍
+        int newCapacity=oldCapacity+oldCapacity;
+        arrays=Arrays.copyOf(arrays,newCapacity);
+    }
+
     public int size(){
         return elementCount;
     }
 
-    public E pop(){
-        //临界值判断，当站内没有元素时判断
-        if (arrays[0]==null){
-            return null;
-        }
-        E result = (E)arrays[topPoint];
-        //将弹出元素 删除
-        arrays[topPoint]=null;
-        //栈顶指针下移
-        topPoint--;
-        //栈内元素个数-1
-        size--;
-       return result;
+    public int getStackCapacity(){
+        return arrays.length;
     }
+
+    public boolean isEmpty(){
+        return size() == 0;
+    }
+
 
     public static void main(String[] args) {
 //        testBaseForStack();
-//         test();
-        testUpgrade();
-
-
+//        test();
+//        testUpgrade();
+        testScale(10);
     }
 
     private static void test(){
@@ -109,11 +151,11 @@ public class ArrayStack<E> {
         stack.push("a");
         stack.push("b");
         stack.push("c");
-        System.out.println(stack.size);
-        String temp=stack.pop();
-        while (temp!=null){
+        System.out.println();
+        //使用数量来迭代
+        while (stack.size>0){
+            String temp=stack.pop();
             System.out.println("弹出元素:"+temp+"栈剩余元素个数:"+stack.size);
-            temp=stack.pop();
         }
     }
 
@@ -123,10 +165,20 @@ public class ArrayStack<E> {
         stack.pushUpgrade("b");
         stack.pushUpgrade("c");
         System.out.println(stack.elementCount);
-        String temp=stack.popUpgrade();
-        while (temp!=null){
+        while (!stack.isEmpty()){
+            String temp=stack.popUpgrade();
             System.out.println("弹出元素:"+temp+"栈剩余元素个数:"+stack.elementCount);
-            temp=stack.popUpgrade();
+        }
+    }
+
+    /**
+     * 测试扩容
+     */
+    private static void testScale(int increment){
+        ArrayStack<Integer> stack = new ArrayStack<Integer>();
+        for (int i = 0; i < increment; i++) {
+            stack.pushUpgrade(i);
+            System.out.println("压入元素="+i+";栈内元素个数="+stack.size()+" ; 栈容量= "+stack.getStackCapacity());
         }
     }
 }
