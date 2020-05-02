@@ -2,6 +2,8 @@ package com.zlykernel.pratice.algorithm.stack;
 
 import com.zlykernel.pratice.algorithm.link.SinglyLinkedList;
 
+import java.util.LinkedList;
+
 /**
  * 栈基于链表
  * @author zhaoliangyuan
@@ -10,25 +12,42 @@ import com.zlykernel.pratice.algorithm.link.SinglyLinkedList;
  * @createTime 2020年04月28日 10:43:00
  */
 public class LinkedListStack<E> {
-    private SinglyLinkedList<E> list;
-    private int size;
+    /**
+     * 如果使用单向链表的化需要迭代
+     * fist 为栈底 tail为栈顶
+     */
+//    private SinglyLinkedList<E> list;
+    private LinkedList<E> linkedList;
 
     public LinkedListStack() {
-        list=new SinglyLinkedList<E>();
+//        list=new SinglyLinkedList<E>();
+        linkedList=new LinkedList<E>();
     }
 
+    /**
+     * 随着 push fist向前增长第一个first为最后一个元素 即为栈底
+     * @param item
+     */
     public void push(E item){
-        list.add(item);
-        size=list.getSize();
+        linkedList.addFirst(item);
     }
 
+    /**
+     *此时第一个元素为最后一个添加的袁术
+     * @return
+     */
     public E pop(){
-        E result=list.getTailValue();
-        list.removeTail();
-        size=list.getSize();
+        E result=linkedList.removeFirst();
         return result;
     }
 
+    public int size(){
+        return linkedList.size();
+    }
+
+    public boolean isEmpty(){
+        return size()==0;
+    }
     public static void main(String[] args) {
         testBaseForStack();
     }
@@ -38,11 +57,10 @@ public class LinkedListStack<E> {
         stack.push("a");
         stack.push("b");
         stack.push("c");
-        System.out.println(stack.size);
-        String temp=stack.pop();
-        while (temp!=null){
-            System.out.println("弹出元素:"+temp+"栈剩余元素个数:"+stack.size);
-            temp=stack.pop();
+        System.out.println(stack.size());
+        while (!stack.isEmpty()){
+            String temp=stack.pop();
+            System.out.println("弹出元素:"+temp+"栈剩余元素个数:"+stack.size());
         }
     }
 }
