@@ -12,3 +12,5 @@
    [2.2 链表](./chapter_2/2_Link.md)
 
    [2.3 栈](./chapter_2/3_Stack.md)
+
+   [2.3 队列](./chapter_2/4_Queue.md)

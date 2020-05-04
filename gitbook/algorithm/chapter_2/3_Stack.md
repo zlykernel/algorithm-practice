@@ -76,8 +76,8 @@
 
 **实践/测试**
 
-+ [栈的实现基于数组(考虑扩容)]()
-+ [栈的实现基于链表]()
++ [栈的实现基于数组(考虑扩容)(完成)](/src/main/java/com/zlykernel/pratice/algorithm/stack/ArrayStack.java)
++ [栈的实现基于链表(完成)](/src/main/java/com/zlykernel/pratice/algorithm/stack/LinkedListStack.java)
 + [栈在表达式求值中的应用]()
 + [栈在括号匹配中的应用]()
 + leetcode上关于栈的题目大家可以先做20,155,232,844,224,682,496.
