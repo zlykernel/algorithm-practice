@@ -55,9 +55,10 @@
 ```
 **实践/测试**
 
-+ [顺序队列]()
++ [顺序队列 扩容 缩容 数据搬移](/src/main/java/com/zlykernel/pratice/algorithm/queue/ArrayQueue.java)
 + [链式队列]()
 + [循环队列]()
 + [阻塞队列]()
 + [并发队列]()
 + [使用CAS实现无锁队列]()
++ [jdk中线程池的源代码实现]()
