@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 队列
  */
-public class ArrayQueue<T> {
+public class ArrayQueue<T> implements Queue<T>{
 
     private Object[] arrays;
     /**

@@ -30,7 +30,7 @@
 ```
 
    
-**思考/总结**
+**思考/总结/扩展**
 
    + 总结
 ```
@@ -53,12 +53,37 @@
 答案: cas + 数组的方式
 
 ```
+   + 扩展
+```
+jdk相关队列
+   常见非阻塞队列
+      ArrayDeque （数组双端队列）
+      PriorityQueue （优先级队列）
+      ConcurrentLinkedQueue （基于链表的并发队列）
+      PriorityQueue 类实质上维护了一个有序列表。加入到 Queue 中的元素根据它们的天然排序（通过其 java.util.Comparable 实现）或者根据传递给构造函数的 java.util.Comparator 实现来定位。
+      ConcurrentLinkedQueue 是基于链接节点的、线程安全的队列。并发访问不需要同步。因为它在队列的尾部添加元素并从头部删除它们，所以只要不需要知道队列的大小，ConcurrentLinkedQueue 对公共集合的共享访问就可以工作得很好。收集关于队列大小的信息会很慢，需要遍历队列。
+      回到顶部
+
+   常见阻塞队列BlockingQueue
+      ArrayBlockingQueue和LinkedBlockingQueue是两个最普通也是最常用的阻塞队列，一般情况下，在处理多线程间的生产者消费者问题，使用这两个类足以。
+      DelayQueue （延期阻塞队列）（阻塞队列实现了BlockingQueue接口）
+      ArrayBlockingQueue （基于数组的并发阻塞队列） 底层是数组，有界队列，如果我们要使用生产者-消费者模式，这是非常好的选择。
+      LinkedBlockingQueue （基于链表的FIFO阻塞队列）  底层是链表，可以当做无界和有界队列来使用，所以大家不要以为它就是无界队列。
+      LinkedBlockingDeque （基于链表的FIFO双端阻塞队列）
+      PriorityBlockingQueue （带优先级的无界阻塞队列） 是无界队列，基于数组，数据结构为二叉堆，数组第一个也是树的根节点总是最小值。
+      SynchronousQueue （并发同步阻塞队列）本身不带有空间来存储任何元素，使用上可以选择公平模式和非公平模式。
+      BlockingQueue 的核心方法：
+      BlockingQueue 对插入操作、移除操作、获取元素操作提供了四种不同的方法用于不同的场景中使用：
+
+```
+
+
+
 **实践/测试**
 
 + [顺序队列 扩容 缩容 数据搬移](/src/main/java/com/zlykernel/pratice/algorithm/queue/ArrayQueue.java)
-+ [链式队列]()
++ [链式队列](/src/main/java/com/zlykernel/pratice/algorithm/queue/LinkedListQueue.java)
 + [循环队列]()
 + [阻塞队列]()
 + [并发队列]()
 + [使用CAS实现无锁队列]()
-+ [jdk中线程池的源代码实现]()
