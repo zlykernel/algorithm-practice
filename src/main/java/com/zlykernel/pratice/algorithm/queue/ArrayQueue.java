@@ -35,6 +35,35 @@ public class ArrayQueue<T> implements Queue<T>{
         elementCount++;
         return item;
     }
+
+    /**
+     * 循环入列
+     * @param item
+     * @return
+     */
+    public T circulateEnqueue(T item){
+        int index=++tail;
+        if (index+1==capacity() && first<1){
+            tail=-1;
+        }
+        arrays[index]=item;
+        elementCount++;
+        return item;
+    }
+    /**
+     * 循环出列
+     * @return
+     */
+    public T circulateDequeue(){
+        int index=++first;
+        if (index+1==capacity() && first<1){
+            first=-1;
+        }
+        T result=(T)arrays[index];
+        arrays[index]=null;
+        elementCount--;
+        return result;
+    }
     /**
      * 出列
      * @return
@@ -53,6 +82,15 @@ public class ArrayQueue<T> implements Queue<T>{
     public int capacity(){
         return arrays.length;
     }
+
+    public int getFirst() {
+        return first;
+    }
+
+    public int getTail() {
+        return tail;
+    }
+
     /**
      * 判断队列是否为空
      * @return
@@ -101,5 +139,4 @@ public class ArrayQueue<T> implements Queue<T>{
             System.out.println("入列元素:"+val+";队列元素数量:"+arrayQueue.size()+";队列容量数量:"+arrayQueue.capacity());
         }
     }
-
 }
