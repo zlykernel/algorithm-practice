@@ -13,4 +13,6 @@
 
    [2.3 栈](./chapter_2/3_Stack.md)
 
-   [2.3 队列](./chapter_2/4_Queue.md)
+   [2.4 队列](./chapter_2/4_Queue.md)
+
+   [2.5 递归](./chapter_2/5_Recursion.md)
