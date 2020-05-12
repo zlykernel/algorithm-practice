@@ -16,3 +16,5 @@
    [2.4 队列](./chapter_2/4_Queue.md)
 
    [2.5 递归](./chapter_2/5_Recursion.md)
+
+   [2.6 递归](./chapter_2/6_Sort.md)

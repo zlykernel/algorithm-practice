@@ -50,7 +50,7 @@ public class Recursion {
     }
 
     public static void main(String[] args) {
-        int methodCount=upperBench(10);
+        int methodCount=upperBench(2);
         System.out.println("方式数量:"+methodCount+";递归次数"+DEPTH.toString()+";读取缓存次数："+READ_CACHE_DEPTH);
     }
 }
