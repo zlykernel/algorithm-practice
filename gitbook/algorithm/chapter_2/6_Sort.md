@@ -69,8 +69,8 @@
 ![](../image/img2-6-1.jpg)
 
 ### **实践/测试**
-+ [冒泡排序]()
-+ [插入排序]()
-+ [选择排序]()
++ [冒泡排序(完成)](/src/main/java/com/zlykernel/pratice/algorithm/sort/Sort.java)
++ [插入排序(完成)](/src/main/java/com/zlykernel/pratice/algorithm/sort/Sort.java)
++ [选择排序(完成)](/src/main/java/com/zlykernel/pratice/algorithm/sort/Sort.java)
 + [希尔排序]()
 

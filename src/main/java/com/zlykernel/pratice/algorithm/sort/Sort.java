@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * 冒泡 插入 选择
  * @author zhaoliangyuan
  * @version 1.0.0
  * @Description TODO
@@ -13,7 +14,7 @@ public class Sort {
     /**
      * 冒泡排序
      * 从小到大
-     * @param args
+     * @param arrs
      */
     public static void bubbleSort(int[] arrs) {
         System.out.println("bubble sort before:"+Arrays.toString(arrs));
