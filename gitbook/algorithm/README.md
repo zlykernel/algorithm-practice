@@ -19,4 +19,6 @@
 
    [2.6 排序1](./chapter_2/6_Sort.md)
 
-   [2.6 排序2](./chapter_2/7_Sort_1.md)
+   [2.7 排序2](./chapter_2/7_Sort_1.md)
+
+   [2.8 排序2](./chapter_2/7_Sort_2.md)
