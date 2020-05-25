@@ -17,7 +17,7 @@ public class SortSecond {
      */
     public static void mergeSort(int[] arrs) {
         System.out.println("merge sort before:"+Arrays.toString(arrs));
-        mergeSortRecursion(arrs,0,arrs.length);
+        mergeSortRecursion(arrs,0,arrs.length-1);
         System.out.println("merge sort after:"+Arrays.toString(arrs));
     }
 
@@ -64,16 +64,48 @@ public class SortSecond {
      * 从小到大
      * @param arrs
      */
-    public static void quickSort() {
-
+    public static void quickSort(int[] arrs) {
+        System.out.println("quick sort before:"+Arrays.toString(arrs));
+        quickSortRecursion(arrs,0,arrs.length-1);
+        System.out.println("quick sort after:"+Arrays.toString(arrs));
     }
 
-    public static void partition(){
+    public static void quickSortRecursion(int[] arrs,int start,int end){
+        if (start>=end) {
+            return;
+        }
+        //获取分区点
+        int partition=partition(arrs,start,end);
+        System.out.println("quickSortRecursion partition="+partition);
+        quickSortRecursion(arrs,start,partition-1);
+        quickSortRecursion(arrs,partition+1,end);
+    }
 
+    //获取分区节点
+    public static int partition(int[] arrs,int start,int end){
+        int endVal=arrs[end];
+        int i=start;
+        for (int j = start; j <end ; ++j) {
+            if (arrs[j]<endVal) {
+                if (i == j) {
+                    ++i;
+                }
+            } else {
+                int tmp=arrs[i];
+                arrs[i++]=arrs[j];
+                arrs[j]=tmp;
+            }
+        }
+        int tmp=arrs[i];
+        arrs[i]=arrs[end];
+        arrs[end]=tmp;
+        return i;
     }
 
     public static void main(String[] args) {
-        int[] seeds=Sort.getTestSeed();
-        mergeSort(seeds);
+//        int[] seeds=Sort.getTestSeed();
+//        mergeSort(seeds);
+        int[] quickSortSeeds=Sort.getTestSeed();
+        quickSort(quickSortSeeds);
     }
 }
