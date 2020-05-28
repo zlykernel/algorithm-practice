@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * 归并排序 快速排序算法
+ * 递归总结
+ *  每次递归 方法的参数在变化
  * @author zhaoliangyuan
  * @version 1.0.0
  * @Description TODO
@@ -70,6 +72,12 @@ public class SortSecond {
         System.out.println("quick sort after:"+Arrays.toString(arrs));
     }
 
+    /**
+     * 递归
+     * @param arrs
+     * @param start
+     * @param end
+     */
     public static void quickSortRecursion(int[] arrs,int start,int end){
         if (start>=end) {
             return;
@@ -77,6 +85,7 @@ public class SortSecond {
         //获取分区点
         int partition=partition(arrs,start,end);
         System.out.println("quickSortRecursion partition="+partition);
+        //此处递归 是为了
         quickSortRecursion(arrs,start,partition-1);
         quickSortRecursion(arrs,partition+1,end);
     }
