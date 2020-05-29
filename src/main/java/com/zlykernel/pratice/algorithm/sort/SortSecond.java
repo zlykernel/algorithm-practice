@@ -92,19 +92,38 @@ public class SortSecond {
 
     //获取分区节点
     public static int partition(int[] arrs,int start,int end){
+        /**
+         * 该分区的最后一个元素
+         * 作为第一个参照点，
+         */
         int endVal=arrs[end];
+        /**
+         * 用于标识位置小于参照位置的最后元素位置
+         * 其实位置是该分区第一个元素的下标
+         */
         int i=start;
+        //从分区第一个开始遍历
         for (int j = start; j <end ; ++j) {
+            /**
+             * 如果该条件一直不成立，说明pivot该区间的最小值，需要将该值的位置换到最前面
+             * 如果该成立
+             */
             if (arrs[j]<endVal) {
                 if (i == j) {
                     ++i;
+                }else {
+                    //将小于参照点元素 移动到 已排序区(准确说是小于参照元素的集合)
+                    int tmp=arrs[i];
+                    //移动排序的最后位置
+                    arrs[i++]=arrs[j];
+                    arrs[j]=tmp;
                 }
-            } else {
-                int tmp=arrs[i];
-                arrs[i++]=arrs[j];
-                arrs[j]=tmp;
             }
         }
+        /**
+         * 最后一个元素放到中间
+         * 此时的i位置 是小于 pivot 最小位置 即在这个位置之前的元素都小于pivot
+         */
         int tmp=arrs[i];
         arrs[i]=arrs[end];
         arrs[end]=tmp;
