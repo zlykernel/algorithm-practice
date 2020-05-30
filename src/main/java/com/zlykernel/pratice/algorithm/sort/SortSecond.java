@@ -28,7 +28,7 @@ public class SortSecond {
             return;
         }
         //获取中间位置
-        int mid=(start+end)>>1;
+        int mid=start+(end-start)/2;
         System.out.println("mergeSortRecursion mid="+mid);
         mergeSortRecursion(arrs,start,mid);
         mergeSortRecursion(arrs,mid+1,end);
@@ -85,7 +85,7 @@ public class SortSecond {
         //获取分区点
         int partition=partition(arrs,start,end);
         System.out.println("quickSortRecursion partition="+partition);
-        //此处递归 是为了
+        //此处递归 是为了分区段
         quickSortRecursion(arrs,start,partition-1);
         quickSortRecursion(arrs,partition+1,end);
     }
