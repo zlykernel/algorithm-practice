@@ -1,6 +1,5 @@
 package com.zlykernel.pratice.algorithm.recursion;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -53,20 +52,22 @@ public class Recursion {
 
     public static void recurseDouble(int args1,int args2,String tag){
 //        String method=new Random().nextLong()+"method";
-        StackTraceElement[] stackTraceElemens=Thread.currentThread().getStackTrace();
-        System.out.println(stackTraceElemens[stackTraceElemens.length-1].toString()+"  args1="+args1+";args2="+args2+";"+tag);
+//        System.out.println("method="+method);
+//        StackTraceElement[] stackTraceElemens=Thread.currentThread().getStackTrace();
+        System.out.println("args1="+args1+";args2="+args2+";"+tag);
         if (args1>=args2){
             return;
         }
         recurseDouble(++args1,args2,"tag1");
         recurseDouble(args1+10,args2+10,"tag2");
+//        System.out.println("method="+method);
     }
 
     public static void main(String[] args) {
 //        int methodCount=upperBench(2);
 //        System.out.println("方式数量:"+methodCount+";递归次数"+DEPTH.toString()+";读取缓存次数："+READ_CACHE_DEPTH);
         recurseDouble(10,12,"tag0");
-        String method = Arrays.toString(Thread.currentThread().getStackTrace()) ;
-        System.out.println(method);
+//        String method = Arrays.toString(Thread.currentThread().getStackTrace()) ;
+//        System.out.println(method);
     }
 }
