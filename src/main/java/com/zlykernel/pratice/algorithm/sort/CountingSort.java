@@ -40,7 +40,10 @@ public class CountingSort {
 
         // 临时数组r，存储排序之后的结果
         int[] r = new int[n];
-        // 计算排序的关键步骤了，有点难理解
+        /**
+         * 计算排序的关键步骤了，有点难理解
+         * 倒序遍历 即从最大的
+         */
         for (int i = n - 1; i >= 0; --i) {
             int index = c[a[i]]-1;
             r[index] = a[i];
