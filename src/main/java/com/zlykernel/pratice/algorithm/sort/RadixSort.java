@@ -44,16 +44,20 @@ public class RadixSort {
             return;
         }
 
-        // 计算每个元素的个数
+        //统计数组 用于保存每个元素出现个数
         int[] c = new int[10];
         for (int i = 0; i < arr.length; i++) {
             /**
-             *
+             * 计算每个元素的个数
              */
             c[(arr[i] / exp) % 10]++;
         }
 
-        // 计算排序后的位置
+        /**
+         * 计算排序后的位置
+         * 此处 处理目的是 计算元素的位置
+         * 现在元素为出现的次数，排序的位置应该是，之前元素次数之后
+         */
         for (int i = 1; i < c.length; i++) {
             c[i] += c[i - 1];
         }
@@ -72,7 +76,8 @@ public class RadixSort {
         }
     }
     public static void main(String[] args) {
-        int[] seeds=Sort.getTestSeed();
+//        int[] seeds=Sort.getTestSeed();
+        int[] seeds=new int[]{0,0,1,9};
         System.out.println("Radix sort before:" + Arrays.toString(seeds));
         radixSort(seeds);
         System.out.println("Radix sort after:" + Arrays.toString(seeds));
