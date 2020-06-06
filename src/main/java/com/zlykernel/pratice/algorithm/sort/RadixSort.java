@@ -56,7 +56,9 @@ public class RadixSort {
         /**
          * 计算排序后的位置
          * 此处 处理目的是 计算元素的位置
-         * 现在元素为出现的次数，排序的位置应该是，之前元素次数之后
+         * 元素的下标 待排序的值
+         * 元素值为出现的次数，
+         * 排序的位置 = 元素次数之和 + 自身值出现的个数
          */
         for (int i = 1; i < c.length; i++) {
             c[i] += c[i - 1];
@@ -76,10 +78,11 @@ public class RadixSort {
         }
     }
     public static void main(String[] args) {
-//        int[] seeds=Sort.getTestSeed();
-        int[] seeds=new int[]{0,0,1,9};
+        int[] seeds=Sort.getTestSeed();
         System.out.println("Radix sort before:" + Arrays.toString(seeds));
         radixSort(seeds);
         System.out.println("Radix sort after:" + Arrays.toString(seeds));
+//        System.out.println(10/500);
+//        System.out.println(10%500);
     }
 }

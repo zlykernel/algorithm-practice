@@ -131,9 +131,9 @@ public class SortSecond {
     }
 
     public static void main(String[] args) {
-        int[] seeds=Sort.getTestSeed();
-        mergeSort(seeds);
-//        int[] quickSortSeeds=Sort.getTestSeed();
-//        quickSort(quickSortSeeds);
+//        int[] seeds=Sort.getTestSeed();
+//        mergeSort(seeds);
+        int[] quickSortSeeds=Sort.getTestSeed();
+        quickSort(quickSortSeeds);
     }
 }

@@ -34,7 +34,7 @@ public class QuickSort {
     }
 
     /**
-     *
+     * 处理 p - r 区间的数据
      * @param a
      * @param p
      * @param r
@@ -59,7 +59,6 @@ public class QuickSort {
             if (a[j] < pivot) {
                 if (i == j) {
                     ++i;
-//                    i++;
                 } else {
                     int tmp = a[i];
                     a[i++] = a[j];
