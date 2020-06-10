@@ -47,6 +47,6 @@
 
 ```
 ### **实践/测试**
-+ [桶排序]()
-+ [计数排序]()
-+ [基数排序]()
++ [桶排序](/src/main/java/com/zlykernel/pratice/algorithm/sort/Sort.java)
++ [计数排序](/src/main/java/com/zlykernel/pratice/algorithm/sort/CountingSort.java)
++ [基数排序](/src/main/java/com/zlykernel/pratice/algorithm/sort/RadixSort.java)

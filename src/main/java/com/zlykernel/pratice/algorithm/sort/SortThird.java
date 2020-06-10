@@ -1,7 +1,5 @@
 package com.zlykernel.pratice.algorithm.sort;
 
-import com.zlykernel.pratice.algorithm.link.SinglyLinkedList;
-
 /**
  * 排序3
  *
