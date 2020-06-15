@@ -22,3 +22,7 @@
    [2.7 排序2 线性排序](./chapter_2/7_Sort_1.md)
 
    [2.8 排序3 排序优化](./chapter_2/8_Sort_2.md)
+
+   [2.9 排序4 排序优化](./chapter_2/8_Sort_3.md)
+
+   [2.10 二分查找](./chapter_2/8_Sort_3.md)

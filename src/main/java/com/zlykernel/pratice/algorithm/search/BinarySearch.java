@@ -59,14 +59,22 @@ public class BinarySearch {
         if (arr[mid] == target){
             return mid;
         }
-        while ( arr[mid] != target){
+        while (mid<=end && start<=mid){
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] < target) {
+                mid= mid+1+((end - mid-1) >> 2);
+            } else {
+                mid= start+((mid-1-start) >> 2);
+            }
         }
         return -1;
     }
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 3, 5, 6};
-        int index = binarySearch(arr, 5);
+//        int index = binarySearch(arr, 5);
+        int index = binarySearchLoop(arr, 6);
         System.out.println("" + index);
     }
 }
