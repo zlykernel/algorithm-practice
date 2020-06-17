@@ -25,4 +25,6 @@
 
    [2.9 排序4 排序优化](./chapter_2/8_Sort_3.md)
 
-   [2.10 二分查找](./chapter_2/8_Sort_3.md)
+   [2.10 二分查找](./chapter_2/10_Binary_Search.md)
+
+   [2.11 二分查找1](./chapter_2/11_Binary_Search_1.md)
