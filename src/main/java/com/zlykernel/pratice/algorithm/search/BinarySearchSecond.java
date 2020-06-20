@@ -24,7 +24,8 @@ public class BinarySearchSecond {
         while (low <= high) {
             int mid = low + ((high - low) >> 1);
             /**
-             * 此处
+             * 临界值考虑:为何mid是大于等于
+             *
              */
             if (a[mid] >= value) {
                 high = mid - 1;
@@ -32,6 +33,10 @@ public class BinarySearchSecond {
                 low = mid + 1;
             }
         }
+        /**
+         * 为何去low
+         * 当给定值有多个的时候(已排序)，取下标最小的。
+         */
         if (low < n && a[low] == value) {
             return low;
         } else {
@@ -69,7 +74,7 @@ public class BinarySearchSecond {
 
     public static void main(String[] args) {
         int[] a = new int[]{1, 2, 3, 3, 3, 3, 3, 5, 5, 5, 7, 8, 9,};
-//        System.out.println(searchFirstOneEq(a, a.length, 3));
-        System.out.println(searchLastOneEq(a, a.length, 3));
+        System.out.println(searchFirstOneEq(a, a.length, 3));
+//        System.out.println(searchLastOneEq(a, a.length, 3));
     }
 }
