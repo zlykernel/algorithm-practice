@@ -28,8 +28,8 @@
 ```
 
 ### **实践/测试**
-+ [变体一]()
-+ [变体二]()
-+ [变体三]()
-+ [变体四]()
++ [变体一](/src/main/java/com/zlykernel/pratice/algorithm/search/BinarySearchSecond.java)
++ [变体二](/src/main/java/com/zlykernel/pratice/algorithm/search/BinarySearchSecond.java)
++ [变体三](/src/main/java/com/zlykernel/pratice/algorithm/search/BinarySearchSecond.java)
++ [变体四](/src/main/java/com/zlykernel/pratice/algorithm/search/BinarySearchSecond.java)
 + [循环数组二分查找]()
