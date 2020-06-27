@@ -59,6 +59,24 @@ public class SkipList {
         }
     }
 
+    /**
+     * 查询
+     * @param value
+     * @return
+     */
+    public Node find(int value){
+        Node pre = head;
+        for (int i = levelCount -1; i >=0 ; i--) {
+            while (pre.forwards[i]!=null && pre.forwards[i].data < value){
+                pre = pre.forwards[i];
+            }
+        }
+        if (pre.forwards[0] != null && pre.forwards[0].data == value){
+            return pre.forwards[0];
+        }else
+            return null;
+    }
+
 
     /**
      * 随机层数
@@ -91,7 +109,35 @@ public class SkipList {
         private int level;
 
         public Node(int level) {
-            this.level = level;
+            this.forwards = new Node[level];
         }
+    }
+
+    /**
+     * 打印所有数据
+     */
+    public void printAll() {
+        Node p = head;
+        Node[] c = p.forwards;
+        Node[] d = c;
+        int maxLevel = c.length;
+        for (int i = maxLevel - 1; i >= 0; i--) {
+            do {
+                System.out.print((d[i] != null ? d[i].data : null) + ":" + i + "-------");
+            } while (d[i] != null && (d = d[i].forwards)[i] != null);
+            System.out.println();
+            d = c;
+        }
+    }
+
+    public static void main(String[] args) {
+        SkipList skipList= new SkipList();
+        skipList.insert(1);
+        skipList.insert(2);
+        skipList.insert(3);
+        skipList.insert(6);
+        skipList.insert(7);
+        skipList.insert(8);
+        skipList.printAll();
     }
 }
